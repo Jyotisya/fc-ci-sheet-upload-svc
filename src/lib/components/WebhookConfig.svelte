@@ -10,7 +10,7 @@
     export let isProcessing = false;
     export let totalRows = 0;
     
-    let targetUrl = 'https://test-api.freecustomer.in/api/v1/webhook/incoming/general/a4ddccb0-b5f7-48b0-9a27-ab513c8ad059';
+    let targetUrl = 'https://api.freecustomer.in/api/v1/webhook/incoming/general/ffde80b9-dfae-4f42-82c0-4adb90d054f1';
     let batchSize = 10;
     let showAdvanced = false;
     let urlError = '';
