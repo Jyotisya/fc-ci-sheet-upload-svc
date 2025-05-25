@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "vite build",
-		"start": "node build",
+		"start": "node --env-file=.env build",
 		"dev": "vite dev",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
