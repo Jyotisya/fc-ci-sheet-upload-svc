@@ -8,7 +8,7 @@
             </svg>
           </div>
           <div>
-            <h1 class="text-xl font-semibold text-gray-900">Excel Webhook Service</h1>
+            <h1 class="text-xl font-semibold text-gray-900">Reflex: Event Webhook Service</h1>
             <p class="text-sm text-gray-500">Transform Excel data into webhook events</p>
           </div>
         </div>
