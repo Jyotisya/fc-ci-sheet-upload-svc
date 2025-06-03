@@ -1,5 +1,6 @@
 import * as XLSX from 'xlsx';
 import type { ExcelRow } from '../types';
+import { isValidHospital, getSimilarHospitals } from '$lib/config/hospitals';
 
 export class ExcelParser {
 	static async parseFile(file: File): Promise<ExcelRow[]> {
@@ -86,6 +87,20 @@ export class ExcelParser {
 			// eslint-disable-next-line no-useless-escape
 			if (row.Phone && !/^\+?[\d\s\-\(\)]{10,}$/.test(row.Phone)) {
 				errors.push(`Row ${index + 2}: Invalid phone number format`);
+			}
+
+			if (row['Center Name']) {
+				const centerName = row['Center Name'].trim();
+				if (!isValidHospital(centerName)) {
+					const suggestions = getSimilarHospitals(centerName);
+					let errorMsg = `Row ${index}: Invalid Center Name "${centerName}". Must exactly match one of the approved hospitals.`;
+
+					if (suggestions.length > 0) {
+						errorMsg += ` Did you mean: ${suggestions.join(', ')}?`;
+					}
+
+					errors.push(errorMsg);
+				}
 			}
 		});
 

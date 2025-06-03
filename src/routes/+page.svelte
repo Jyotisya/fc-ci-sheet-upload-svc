@@ -8,6 +8,7 @@
     import SampleDataGenerator from '$lib/components/SampleDataGenerator.svelte';
     import { ExcelParser } from '$lib/utils/excelParser';
     import { WebhookTransformer } from '$lib/utils/webhookTransformer';
+	  import HospitalList from '$lib/components/HospitalList.svelte';
     
     let isProcessing = false;
     let errorMessage = '';
@@ -209,8 +210,9 @@
           </div>
           
           {#if !$selectedFile}
-            <div class="mb-6">
+            <div  class="space-y-4 mb-6">
               <SampleDataGenerator />
+              <HospitalList />
             </div>
           {/if}
           
