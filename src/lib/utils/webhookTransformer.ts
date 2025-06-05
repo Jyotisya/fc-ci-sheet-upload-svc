@@ -16,7 +16,7 @@ export class WebhookTransformer {
 				eventId,
 				transactionId,
 				timestamp,
-				eventType: 'patient_data_upload',
+				eventType: transformedData?.['form_name'],
 				data: transformedData,
 				metadata: {
 					source: 'excel_upload',

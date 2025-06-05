@@ -27,8 +27,8 @@ export interface WebhookEvent {
 	eventId: string;
 	transactionId: string;
 	timestamp: string;
-	eventType: 'patient_data_upload';
-	data: TransformedExcelRow; // Now uses snake_case data
+	eventType: 'IP Feedback' | 'OPD Feedback';
+	data: TransformedExcelRow;
 	metadata: {
 		source: 'excel_upload';
 		fileName: string;
