@@ -6,9 +6,14 @@
     import DataPreview from '$lib/components/DataPreview.svelte';
     import WebhookConfig from '$lib/components/WebhookConfig.svelte';
     import SampleDataGenerator from '$lib/components/SampleDataGenerator.svelte';
+    import Widget from '$lib/components/Widget.svelte';
     import { ExcelParser } from '$lib/utils/excelParser';
     import { WebhookTransformer } from '$lib/utils/webhookTransformer';
 	  import HospitalList from '$lib/components/HospitalList.svelte';
+    import { PUBLIC_WIDGET_MODE } from '$env/static/public';
+    
+    // Check if widget mode is enabled
+    const isWidgetMode = PUBLIC_WIDGET_MODE === 'true';
     
     let isProcessing = false;
     let errorMessage = '';
@@ -186,7 +191,12 @@
     }
   </script>
   
-  <div class="min-h-screen bg-gray-50">
+  {#if isWidgetMode}
+    <!-- Widget Mode: Show external widget -->
+    <Widget />
+  {:else}
+    <!-- Regular Mode: Show Excel upload interface -->
+    <div class="min-h-screen bg-gray-50">
     <Header />
     
     <div class="max-w-4xl mx-auto py-8 px-4">
@@ -335,3 +345,4 @@
       </div>
     </div>
   </div>
+  {/if}

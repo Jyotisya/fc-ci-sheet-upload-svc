@@ -10,4 +10,13 @@ declare global {
 	}
 }
 
+// Environment variables
+interface ImportMetaEnv {
+	readonly PUBLIC_WIDGET_MODE: string;
+}
+
+interface ImportMeta {
+	readonly env: ImportMetaEnv;
+}
+
 export {};
